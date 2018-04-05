@@ -32,6 +32,7 @@ function fetch_array($result){
   return mysqli_fetch_array($result);
 }
 
+/************** Begin Front end functions **********************/
 // get products
 
 function get_products(){
@@ -47,7 +48,7 @@ $product = <<<DELIMETER
       <a href="item.php?id={$row['product_id']}"><img src="{$row['product_image']}" alt=""></a>
       <div class="caption">
         <h4 class="pull-right">&#36;{$row['product_price']}</h4>
-        <h4><a href="#">{$row['product_title']}</a>
+        <h4><a href="item.php?id={$row['product_id']}">{$row['product_title']}</a>
         </h4>
         <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         <a class="btn btn-primary" target="_blank" href="item.php?id={$row['product_id']}">Add to cart</a>
@@ -62,6 +63,7 @@ echo $product;
   }
 }
 
+// get categories
 function get_categories(){
 
   $query = query(" SELECT * FROM categories");
@@ -78,5 +80,9 @@ DELIMETER;
   }
 }
 
+/************** End Front end functions **********************/
 
+/************** Begin Back end functions **********************/
+
+/************** End Back end functions **********************/
 ?>
