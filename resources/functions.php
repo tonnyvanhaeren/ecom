@@ -178,6 +178,35 @@ function login_user(){
   }
 }
 
+//send message
+function send_message(){
+  if(isset($_POST['submit'])){
+    $to = "antonius.vanhaeren.av@gmail.com";
+    $from_name = $_POST['name'];
+    $email     = $_POST['email'];
+    $subject   = $_POST['subject'];
+    $message   = $_POST['message'];
+
+
+    $headers = "From: {$from_name}";
+
+    $result = mail($to, $subject, $message, $headers);
+
+    if(!$result) {
+      set_message("Sorry something went wrong!");
+      redirect("contact.php");
+    }else {
+      set_message("Your message has been send");
+      redirect("contact.php");
+    }
+
+
+  }
+
+
+
+}
+
 /************** End Front end functions **********************/
 
 /************** Begin Back end functions **********************/
